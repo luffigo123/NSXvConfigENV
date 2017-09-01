@@ -33,7 +33,7 @@ public class ConfigureTestENV {
 		try{
 			String vc_IP = DefaultEnvironment.vcIP;
 			String esx1_IP = DefaultEnvironment.esxiHost01_IPAddress;
-			String esx2_IP = DefaultEnvironment.esxiHost02_IPAddress;
+//			String esx2_IP = DefaultEnvironment.esxiHost02_IPAddress;
 			
 			String temp_DataCenter_Name = testData.DatacenterName;
 			String vcUserName = DefaultEnvironment.vcUserName;
@@ -60,20 +60,20 @@ public class ConfigureTestENV {
 			
 			log.info("Add the vESX hosts to the Datacenter");
 			ManagedObjectReference hostMor = hostOps.addStandaloneHost2(esx1_IP, esxiUsername, esxiPasswd, testData.DatacenterName);
-			hostOps.addStandaloneHost(esx2_IP, esxiUsername, esxiPasswd, testData.DatacenterName);
+//			hostOps.addStandaloneHost(esx2_IP, esxiUsername, esxiPasswd, testData.DatacenterName);
 
 
-			log.info("Create clusters, names are - cluster1: " + testData.Cluster1 + ", cluster 2 is" + testData.Cluster2);
+			log.info("Create clusters, names are - cluster1: " + testData.Cluster1);
 			cluOps.createDefaultCluster(testData.DatacenterName, testData.Cluster1);
-			cluOps.createDefaultCluster(testData.DatacenterName, testData.Cluster2);
+//			cluOps.createDefaultCluster(testData.DatacenterName, testData.Cluster2);
 
-			log.info("Move the ESXi_01 to cluster1, move the ESXi_02 to cluster2");
+			log.info("Move the ESXi_01 to cluster1");
 			cluOps.moveHostToCluster(testData.Cluster1, esx1_IP);
-			cluOps.moveHostToCluster(testData.Cluster2, esx2_IP);
+//			cluOps.moveHostToCluster(testData.Cluster2, esx2_IP);
 
 			log.info("Enable Promious Mode for the 2 ESXi hosts");
 			hostOps.enableVswitchPromiscuousMode(esx1_IP, "vSwitch0");
-			hostOps.enableVswitchPromiscuousMode(esx2_IP, "vSwitch0");
+//			hostOps.enableVswitchPromiscuousMode(esx2_IP, "vSwitch0");
 			
 			log.info("Add 2 Portgroup to ESXi_01, the first one is - " + testData.PG_Internal01 + ", the second one is - " + testData.PG_Uplink01);
 			hostOps.addPortGroup(esx1_IP, "vSwitch0", testData.PG_Internal01);
@@ -97,8 +97,8 @@ public class ConfigureTestENV {
 				log.info(inputLanguage + ": Failed to add dvs on esx1");
 //				return false;
 			}
-			log.info("Add host2 to the DVS");
-			dvsOps.addHostToDVS(testData.DatacenterName, testData.dvSwitchName, esx2_IP);
+//			log.info("Add host2 to the DVS");
+//			dvsOps.addHostToDVS(testData.DatacenterName, testData.dvSwitchName, esx2_IP);
 			
 			log.info("Add dvPortgroup on dvs");
 			String s1 = dvsOps.addPortGroup(testData.DatacenterName, testData.dvSwitchName, null, 4, testData.dvPortGroupName);
