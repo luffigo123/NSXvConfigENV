@@ -25,8 +25,8 @@ public class DefaultEnvironment {
 	public static final String helperVMname = cfg.ConfigMap.get("helperVMname"); 
 	
 	//ESXi hosts info
-	public static final String esxiHost01_IPAddress = cfg.ConfigMap.get("esxiHost01_IPAddress");
-	public static final String esxiHost02_IPAddress = cfg.ConfigMap.get("esxiHost02_IPAddress");
+	public static final String esxiHost01_IPAddress = cfg.ConfigMap.get("esxi01IP");
+	public static final String esxiHost02_IPAddress = cfg.ConfigMap.get("esxi02IP");
 	public static final String esxiUserName = cfg.ConfigMap.get("esxiUserName");
 	public static final String esxiPassword = cfg.ConfigMap.get("esxiPassword");
 	
