@@ -27,23 +27,34 @@ public class TestData {
 	public String PG_Uplink01 = null;
 	public String VM1 = null;
 	public String VM2 = null;
-
+	public String GroupObject_ipSetName = null;
+	public String GroupObject_MacSetName = null;
+	public String GroupObject_serivceName = null;
+	public String GroupObject_securityGroupsName = null;
+	public String GroupObject_serviceGroupName = null;
+	public String securityTagName = null;
+	public String AppFirewall_sectionName = null;
+	public String AppFirewall_firewallName = null;
+	public String AppFirewall_saveConfigurationName = null;
+	
 	public TestData(String inputLanguage){
 		this.inputLanguage = inputLanguage;
 		this.TestDataFile = System.getProperty("user.dir") + "\\src\\main\\resources\\TestData\\TestData_" + inputLanguage;
 		this.TestDataMap = readDataFile();
 		this.SuperString = this.TestDataMap.get("SuperString");
 		this.NativeString = this.TestDataMap.get("NativeString");
-		this.dvSwitchName = "dvs_" + this.NativeString;
-		this.dvPortGroupName = "dvPG_" + this.NativeString;
-		this.DatacenterName = "dc_" + this.NativeString;
-		this.Cluster1 = "clu1_" + this.NativeString;
-		this.Cluster2 = "clu2_" + this.NativeString;
-		this.DataStore1 = "ds1" + this.NativeString;
-		this.PG_Internal01 = "internal01_" + this.NativeString;
-		this.PG_Uplink01 = "Uplink01_" + this.NativeString;
-		this.VM1 = "vm1_" + this.NativeString;
-		this.VM2 = "vm2_" + this.NativeString;
+		
+		this.dvSwitchName = this.NativeString.substring(0, 1) + this.NativeString;
+		this.dvPortGroupName = this.NativeString;
+		this.DatacenterName = this.NativeString.substring(0, 1) + this.NativeString +this.NativeString.substring(0, 1);
+		this.Cluster1 = this.NativeString;
+		this.Cluster2 = this.NativeString + this.NativeString.substring(0, 1);
+		this.DataStore1 = this.NativeString;
+		this.PG_Internal01 = this.NativeString + this.NativeString.substring(0, 1);
+		this.PG_Uplink01 = this.NativeString + this.NativeString.substring(0, 1)+ this.NativeString.substring(0, 1);
+		this.VM1 = this.NativeString;
+		this.VM2 = this.NativeString + this.NativeString.substring(0, 1);
+		
 	}
 	
 
@@ -84,3 +95,4 @@ public class TestData {
 	}
 
 }
+

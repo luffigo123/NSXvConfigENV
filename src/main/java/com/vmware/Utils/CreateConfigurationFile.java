@@ -63,7 +63,7 @@ public class CreateConfigurationFile {
 			writer.write("VCIP=" + DefaultEnvironment.vcIP + System.getProperty("line.separator"));
 			writer.write("VCUserName=" + DefaultEnvironment.vcUserName + System.getProperty("line.separator"));
 			writer.write("VCPassword=" + DefaultEnvironment.vcPasswd + System.getProperty("line.separator"));
-			writer.write("VCPort=" + DefaultEnvironment.vcPort + System.getProperty("line.separator"));
+			writer.write("VCPort=" + "443" + System.getProperty("line.separator"));
 			writer.write("dvSwitchName=" + testData.dvSwitchName+System.getProperty("line.separator"));
 			writer.write("dvPortGroupName=" + testData.dvPortGroupName +System.getProperty("line.separator"));
 			writer.write("DatacenterName=" + testData.DatacenterName + System.getProperty("line.separator"));

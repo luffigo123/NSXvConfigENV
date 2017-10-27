@@ -12,7 +12,10 @@ public class CloneVM_Thread implements Runnable{
 	
 	private PropertiesUtils pu;
 	
-	public CloneVM_Thread(VMOperation vmOperation, String sourceVM, String destVMName, String destHostName, String destDatastore){
+	private String number;
+	
+	//EnvConst.VM1_temp, testData.VM1, esx1_IP, destDatastore
+	public CloneVM_Thread(VMOperation vmOperation, String sourceVM, String destVMName, String destHostName, String destDatastore, String no){
 		this.vmOperation = vmOperation;
 		this.sourceVM = sourceVM;
 		this.destVMName = destVMName;
@@ -20,6 +23,7 @@ public class CloneVM_Thread implements Runnable{
 		this.destDatastore = destDatastore;
 		
 		pu = new PropertiesUtils("tempResult.properties");
+		this.number = no;
 	}
 
 	@Override
@@ -27,11 +31,19 @@ public class CloneVM_Thread implements Runnable{
 		try {
 			 boolean result = vmOperation.CloneVM(sourceVM, destVMName, destHostName, destDatastore);
 			 String temp = String.valueOf(result);
-			 if(destVMName.contains("vm1")){
-				 pu.writeValueByKey("cloneVM1Flag", temp);
-			 }else{
-				 pu.writeValueByKey("cloneVM2Flag", temp);
-			 }
+//			 if(destVMName.contains("vm1")){
+//				 pu.writeValueByKey("cloneVM1Flag", temp);
+//			 }else{
+//				 pu.writeValueByKey("cloneVM2Flag", temp);
+//			 }
+			 
+		 if("first".equalsIgnoreCase(this.number)){
+			 pu.writeValueByKey("cloneVM1Flag", temp);
+		 }else if("second".equalsIgnoreCase(this.number)){
+			 pu.writeValueByKey("cloneVM2Flag", temp);
+		 }else {
+			 
+		 }
 			 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -39,3 +51,4 @@ public class CloneVM_Thread implements Runnable{
 	}
 
 }
+

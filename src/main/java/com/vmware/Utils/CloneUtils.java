@@ -74,8 +74,11 @@ public class CloneUtils {
 			log.info("Clone 2 vm to ESXi_01");
 			DatastoreUtils datastoreUtils = new DatastoreUtils(vc);
 			String destDatastore = datastoreUtils.getDatastoreName(esxi01_IP);
-			new Thread(new CloneVM_Thread(vmOps_froESX2,helperVMname, testData.VM1, esxi01_IP, destDatastore)).start();
-			new Thread(new CloneVM_Thread(vmOps_froESX2,helperVMname, testData.VM2, esxi01_IP, destDatastore)).start();
+//			new Thread(new CloneVM_Thread(vmOps_froESX2,helperVMname, testData.VM1, esxi01_IP, destDatastore)).start();
+//			new Thread(new CloneVM_Thread(vmOps_froESX2,helperVMname, testData.VM2, esxi01_IP, destDatastore)).start();
+			new Thread(new CloneVM_Thread(vmOps_froESX2,helperVMname, testData.VM1, esxi01_IP, destDatastore, "first")).start();
+			new Thread(new CloneVM_Thread(vmOps_froESX2,helperVMname, testData.VM2, esxi01_IP, destDatastore, "second")).start();
+			
 			
 			log.info("If the clone VMs are ready, power on the VMs!");
 			CheckUtils checkUtils = new CheckUtils();

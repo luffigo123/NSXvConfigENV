@@ -7,9 +7,11 @@ public class DefaultEnvironment {
 	
 	//vc info
 	public static final String vcIP = cfg.ConfigMap.get("vcIP");
-	public static final String vcPort = cfg.ConfigMap.get("vcPort");
+//	public static final String vcPort = cfg.ConfigMap.get("vcPort");
 	public static final String vcUserName = cfg.ConfigMap.get("vcUserName"); 
 	public static final String vcPasswd = cfg.ConfigMap.get("vcPasswd");
+	public static final String vcRootName = cfg.ConfigMap.get("vcRootName"); 
+	public static final String vcRootPassword = cfg.ConfigMap.get("vcRootPassword");
 
 	//VSM info
 	public static final String vsmIP = cfg.ConfigMap.get("vsmIP");
@@ -30,5 +32,7 @@ public class DefaultEnvironment {
 	
 	//For Edge
 	public static final String UplinkIP = cfg.ConfigMap.get("UplinkIP");
+	
+	public static final String nsxLicenseKey = cfg.ConfigMap.get("nsxLicenseKey");
 	
 }
