@@ -1,17 +1,18 @@
 package com.vmware.Utils;
 
+import java.net.URLEncoder;
+
 public class VSMManagement {
 	private VCUtils vc ;
 	private HttpReq httpReq;
 	public VSMManagement(){
 		vc = VCUtils.getInstance();
-		httpReq = new HttpReq();	
+		httpReq = HttpReq.getInstance();	
 	}
 	
 	
 	public Boolean configVCToNSX(String vcIP, String vcUserName, String vcPWD, String vsmIP) throws Exception {		
 		String ep = "https://" + vsmIP + "/api/2.0/services/vcconfig";
-//		String reqparam = ""; 
 		String certificateThumbprint = vc.getVcSslThumbprint();
         String reqBody = XmlFileOp.generateXMLStringCommon("ConnectVC.xml",
 													 "ipAddress", vcIP,
@@ -41,7 +42,10 @@ public class VSMManagement {
 													 "userName", vcUserName,
 													 "password", vcPWD,
 													 "certificateThumbprint", vcFingerprint);
+       
         try {
+        	 ep = URLEncoder.encode(ep,"UTF-8");
+        	 reqBody = URLEncoder.encode(reqBody,"UTF-8");
 			httpReq.putRequest(ep, reqBody);
 			whetherRegistered = true;
 		} catch (Exception e) {

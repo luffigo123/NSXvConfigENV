@@ -140,7 +140,7 @@
 	</dependency>
 
 	<!-- vsm package -->
-	<dependency>
+<!-- 	<dependency>
 		<groupId>com.vmware</groupId>
 		<artifactId>vsmclient</artifactId>
 		<version>6.0</version>
@@ -149,7 +149,7 @@
 		<groupId>com.vmware</groupId>
 		<artifactId>xstream</artifactId>
 		<version>6.0</version>
-	</dependency>
+	</dependency> -->
 	
 	<!-- Apache HttpComponents Client  -->
 	<dependency>
