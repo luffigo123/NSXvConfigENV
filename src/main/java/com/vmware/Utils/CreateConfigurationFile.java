@@ -78,6 +78,13 @@ public class CreateConfigurationFile {
 			writer.write("VM2=" + testData.VM2 + System.getProperty("line.separator"));
 		
 			log.info("Write Base info part 2");
+//			writer.write("[Domain]"+System.getProperty("line.separator"));
+//			writer.write("domainName = nsx8.com"+System.getProperty("line.separator"));
+//			writer.write("netBiosName = nsx"+System.getProperty("line.separator"));
+//			writer.write("domainUserName = administrator"+System.getProperty("line.separator"));
+//			writer.write("domainPassword = ca$hc0wB"+System.getProperty("line.separator"));
+//			writer.write("domainHostIP = 10.132.109.204"+System.getProperty("line.separator"));
+			
 			writer.write("[Add IP Pool]"+ System.getProperty("line.separator"));
 			writer.write("IPPoolGateway=10.117.171.253"+ System.getProperty("line.separator"));
 			writer.write("IPPoolPrefixLength=22"+System.getProperty("line.separator"));
@@ -86,12 +93,35 @@ public class CreateConfigurationFile {
 			writer.write("IPPoolDNSSuffix=eng.vmware.com"+System.getProperty("line.separator"));
 			writer.write("IPPoolStartIPAddress=10.117.168.253"+System.getProperty("line.separator"));
 			writer.write("IPPoolEndIPAddress=10.117.168.254"+System.getProperty("line.separator"));
-			writer.write("[Domain]"+System.getProperty("line.separator"));
-			writer.write("domainName = nsx8.com"+System.getProperty("line.separator"));
-			writer.write("netBiosName = nsx"+System.getProperty("line.separator"));
-			writer.write("domainUserName = administrator"+System.getProperty("line.separator"));
-			writer.write("domainPassword = ca$hc0wB"+System.getProperty("line.separator"));
-			writer.write("domainHostIP = 10.132.109.204"+System.getProperty("line.separator"));
+			
+			writer.write("[Edge]"+System.getProperty("line.separator"));
+			writer.write("edgeGatewayUplinkIPAddress = 192.168.1.2"+System.getProperty("line.separator"));
+			writer.write("edgeGatewayUplinkSubnetMask = 255.255.255.0"+System.getProperty("line.separator"));
+			writer.write("edgeGatewayUplinkSubnetPrefixLength = 24"+System.getProperty("line.separator"));
+			writer.write("edgeGatewayInternalIPAddress = 192.168.2.2"+System.getProperty("line.separator"));
+			writer.write("edgeGatewayInternalSubnetMask = 255.255.255.0"+System.getProperty("line.separator"));
+			writer.write("edgeGatewayInternalSubnetPrefixLength = 24"+System.getProperty("line.separator"));
+			
+			writer.write("logicalRouterManagementIPAddress=1.1.1.2"+ System.getProperty("line.separator"));
+			writer.write("logicalRouterManagementSubnetMask=255.255.255.0"+System.getProperty("line.separator"));
+			writer.write("logicalRouterManagementSubnetPrefixLength=24"+System.getProperty("line.separator"));
+			writer.write("logicalRouterUplinkIPAddress=2.2.2.2"+System.getProperty("line.separator"));
+			writer.write("logicalRouterUplinkSubnetMask=255.255.255.0"+System.getProperty("line.separator"));
+			writer.write("logicalRouterUplinkSubnetPrefixLength=24"+System.getProperty("line.separator"));
+			writer.write("logicalRouterInternalIPAddress=3.3.3.3"+System.getProperty("line.separator"));
+			writer.write("logicalRouterInternalSubnetMask=255.255.255.0"+ System.getProperty("line.separator"));
+			writer.write("logicalRouterInternalSubnetPrefixLength=24"+System.getProperty("line.separator"));
+			
+			writer.write("universalLogicalRouterManagementIPAddress=4.4.4.4"+System.getProperty("line.separator"));
+			writer.write("universalLogicalRouterManagementSubnetMask=255.255.255.0"+System.getProperty("line.separator"));
+			writer.write("universalLogicalRouterManagementSubnetPrefixLength=24"+System.getProperty("line.separator"));
+			writer.write("universalLogicalRouterUplinkIPAddress=5.5.5.5"+System.getProperty("line.separator"));
+			writer.write("universalLogicalRouterUplinkSubnetMask=255.255.255.0"+System.getProperty("line.separator"));
+			writer.write("universalLogicalRouterUplinkSubnetPrefixLength=24"+ System.getProperty("line.separator"));
+			writer.write("universalLogicalRouterInternalIPAddress=6.6.6.6"+System.getProperty("line.separator"));
+			writer.write("universalLogicalRouterInternalSubnetMask=255.255.255.0"+System.getProperty("line.separator"));
+			writer.write("universalLogicalRouterInternalSubnetPrefixLength=24"+System.getProperty("line.separator"));
+
 			writer.close();
 			log.info("Config file completed.");
 		}catch(Exception e){
